@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+
+  <!-- External icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- FIXED: CSS from static folder -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style3.css') }}">
+</head>
+<body>
+
+<!-- Sidebar -->
+<div style="width:220px; background:#1a1a1d; height:100vh; position:fixed;">
+  <h3 style="padding:20px;">🎬 Hub</h3>
+
+  <nav style="display:flex; flex-direction:column; gap:15px; padding:20px;">
+    <!-- FIXED: use Flask routes -->
+    <a href="{{ url_for('dashboard') }}">Dashboard</a>
+    <a href="{{ url_for('explore') }}">Explore</a>
+    <a href="{{ url_for('create') }}">Create</a>
+    <a href="{{ url_for('collaborate') }}">Collaborate</a>
+    <a href="{{ url_for('logout') }}">Logout</a>
+  </nav>
+</div>
+
+<!-- Main Content -->
+<div style="margin-left:240px; padding:40px;">
+
+  <section class="profile-header">
+
+    <div class="profile-section">
+
+      <div class="profile-avatar">
+        <!-- FIXED: static image -->
+        <img id="avatarImg" src="{{ url_for('static', filename='default-avatar.png') }}" alt="Avatar">
+
+        <label for="avatarInput" class="btn-avatar">
+          <i class="fas fa-camera"></i> Change Avatar
+        </label>
+
+        <input type="file" id="avatarInput" accept="image/*" style="display:none;">
+      </div>
+
+      <div class="profile-info">
+        <!-- You can later replace this with dynamic username -->
+        <h2 id="username">{{username}}</h2>
+        <p id="userBio">This is your creative space.</p>
+
+        <button id="editProfileBtn" class="btn-edit">
+          <i class="fas fa-edit"></i> Edit Profile
+        </button>
+      </div>
+
+    </div>
+
+    <div class="profile-stats">
+      <div class="stat">
+        <span class="number">0</span>
+        <span class="label">Animations</span>
+      </div>
+
+      <div class="stat">
+        <span class="number">0</span>
+        <span class="label">Views</span>
+      </div>
+
+      <div class="stat">
+        <span class="number">0</span>
+        <span class="label">Collaborations</span>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="gallery-section">
+    <h2>Your Animations</h2>
+    <div class="gallery-row" id="animationGallery"></div>
+  </section>
+
+  <!-- Modal -->
+  <div id="previewModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3 id="modalTitle">Animation Title</h3>
+      <p id="modalInfo">00:00 • Edited just now</p>
+
+      <div class="modal-video">
+        <div class="video-placeholder">🎬 Preview Video</div>
+      </div>
+    </div>
+  </div>
+
+  <section class="private-gallery">
+    <h3>My Private Animations 🔒</h3>
+    <p>These animations are private and only visible to you.</p>
+
+    <button id="togglePrivateGallery" class="btn-toggle">Show Private Gallery</button>
+    <button id="createPrivateAnimation" class="btn-toggle">Create New Private Animation</button>
+
+    <div id="privateGalleryContainer" class="gallery-container hidden"></div>
+  </section>
+
+</div>
+
+<!-- FIXED: JS from static -->
+<script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+
+</body>
+</html>

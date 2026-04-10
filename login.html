@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+
+  <!-- FIXED: load CSS from static -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+</head>
+<body>
+
+<div class="container" style="max-width: 400px; padding-top: 100px;">
+  <h2>Log In</h2>
+
+  <!-- Show messages (errors like wrong password) -->
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <p style="color: red;">{{ message }}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <!-- FIXED: connect form to Flask -->
+  <form action="{{ url_for('login') }}" method="POST">
+
+    <input 
+      type="email" 
+      name="email" 
+      placeholder="Email" 
+      required
+      style="width:100%; margin:10px 0; padding:10px;"
+    >
+
+    <input 
+      type="password" 
+      name="password" 
+      placeholder="Password" 
+      required
+      style="width:100%; margin:10px 0; padding:10px;"
+    >
+
+    <!-- REAL submit button -->
+    <button type="submit" style="width:100%;">Log In</button>
+
+  </form>
+
+  <!-- Optional navigation -->
+  <p style="margin-top: 10px;">
+    Don't have an account? 
+    <a href="{{ url_for('signup') }}">Sign up</a>
+  </p>
+
+</div>
+
+</body>
+</html>

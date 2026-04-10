@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign Up</title>
+
+  <!-- FIXED: CSS must come from static folder -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+</head>
+<body>
+
+<div class="container" style="max-width: 400px; padding-top: 100px;">
+  <h2>Create Account</h2>
+
+  <!-- OPTIONAL: show success/error messages -->
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <p style="color: red;">{{ message }}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <!-- FIXED: form now connects to Flask -->
+  <form action="{{ url_for('signup') }}" method="POST">
+    
+    <input 
+      type="text" 
+      name="username" 
+      placeholder="Username" 
+      required
+      style="width:100%; margin:10px 0; padding:10px;"
+    >
+
+    <input 
+      type="email" 
+      name="email" 
+      placeholder="Email" 
+      required
+      style="width:100%; margin:10px 0; padding:10px;"
+    >
+
+    <input 
+      type="password" 
+      name="password" 
+      placeholder="Password" 
+      required
+      style="width:100%; margin:10px 0; padding:10px;"
+    >
+
+    <!-- FIXED: real submit button -->
+    <button type="submit" style="width:100%;">Sign Up</button>
+
+  </form>
+
+  <!-- Optional navigation -->
+  <p style="margin-top: 10px;">
+    <a href="{{ url_for('home') }}">Back to Home</a>
+  </p>
+
+</div>
+
+</body>
+</html>

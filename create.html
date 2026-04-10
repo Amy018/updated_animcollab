@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style4.css') }}">
+
+  <style>
+    #scaleSliderObj, #rotateSliderObj {
+      margin: 10px 0;
+      width: 100%;
+    }
+
+    .assets-panel select {
+      width: 100%;
+      height: 100px;
+      margin: 5px 0;
+      border-radius: 5px;
+      padding: 5px;
+    }
+
+    .assets-panel button {
+      background: #3a3a3d;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .assets-panel button:hover {
+      background: #555;
+    }
+  </style>
+</head>
+
+<body>
+
+<div style="width:220px; background:#1a1a1d; height:100vh; position:fixed;">
+  <h3 style="padding:20px;">🎬 Hub</h3>
+  <nav style="display:flex; flex-direction:column; gap:15px; padding:20px;">
+    <a href="{{ url_for('dashboard') }}">Dashboard</a>
+    <a href="{{ url_for('explore') }}">Explore</a>
+    <a href="{{ url_for('create') }}">Create</a>
+    <a href="{{ url_for('collaborate') }}">Collaborate</a>
+    <a href="{{ url_for('logout') }}">Logout</a>
+  </nav>
+</div>
+
+<div style="margin-left:240px; padding:40px;">
+  <div class="create-container">
+
+    <div class="top-toolbar">
+      <input type="text" placeholder="Untitled Animation" class="project-title">
+
+      <div class="toolbar-actions">
+        <button id="saveBtn">Save</button>
+
+        <button id="exportBtn">Export ▼</button>
+        <div id="exportOptions" style="display:none; position:absolute;">
+          <button id="exportPNG">Export as PNG</button>
+          <button id="exportGIF">Export as GIF</button>
+        </div>
+
+        <!-- FIXED ID -->
+        <button id="savePrivateBtn">🔒 Private</button>
+
+        <button id="playAnimation">▶ Play</button>
+        <button id="toggleOnion">🧅 Onion Skin</button>
+
+        <label for="frameRate">FPS:</label>
+        <input type="range" id="frameRate" min="1" max="24" value="3">
+        <span id="fpsValue">3</span>
+      </div>
+    </div>
+
+    <div class="workspace">
+
+      <div class="tools-panel">
+        <h3>Tools</h3>
+        <button id="brushTool">Brush</button>
+        <button id="eraserTool">Eraser</button>
+        <button id="clearCanvas">Clear</button>
+        <input type="color" id="colorPicker">
+        <label>Brush Size</label>
+        <input type="range" id="sizeSlider" min="1" max="20">
+      </div>
+
+      <div class="assets-panel">
+        <h3>Assets</h3>
+
+        <select id="assetSelect" multiple>
+          <option value="ball">⚽ Ball</option>
+          <option value="star">⭐ Star</option>
+          <option value="square">⬛ Square</option>
+        </select>
+
+        <button id="addAssetsBtn">Add Selected Assets</button>
+
+        <label for="scaleSliderObj">Scale:</label>
+        <input type="range" id="scaleSliderObj" min="0.5" max="2" step="0.1" value="1">
+
+        <label for="rotateSliderObj">Rotate (°):</label>
+        <input type="range" id="rotateSliderObj" min="0" max="360" step="1" value="0">
+      </div>
+
+      <div class="canvas-area">
+        <canvas id="drawingCanvas" width="600" height="400"></canvas>
+      </div>
+
+      <div class="frames-panel">
+        <h3>Frames</h3>
+        <div id="framesContainer"></div>
+        <button id="addFrame">+ Add Frame</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- GIF LIBRARY FIRST -->
+<script src="https://cdn.jsdelivr.net/npm/gif.js.optimized/dist/gif.js"></script>
+
+<!-- YOUR JS -->
+<script src="{{ url_for('static', filename='create.js') }}"></script>
+
+</body>
+</html>

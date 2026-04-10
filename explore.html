@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Explore Animations</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='explore.css') }}">
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div style="width:220px; background:#1a1a1d; height:100vh; position:fixed;">
+  <h3 style="padding:20px;">🎬 Hub</h3>
+  <nav style="display:flex; flex-direction:column; gap:15px; padding:20px;">
+    <a href="{{ url_for('dashboard') }}">Dashboard</a>
+    <a href="{{ url_for('explore') }}">Explore</a>
+    <a href="{{ url_for('create') }}">Create</a>
+    <a href="{{ url_for('collaborate') }}">Collaborate</a>
+    <a href="{{ url_for('logout') }}">Logout</a>
+  </nav>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<h1>Explore Animations</h1>
+
+<!-- FEATURED -->
+<div class="featured">
+<img src="{{ url_for('static', filename='images/logo.avif') }}" alt="logo"> 
+<div>
+<h2>🌟 Featured Animation</h2>
+<p><b>Rocket Launch</b> by Alex</p>
+<button onclick="playVideo('rocket')">▶ Watch</button>
+</div>
+</div>
+
+<!-- FILTERS -->
+<div class="filters">
+<button class="active" onclick="filter('all',this)">All</button>
+<button onclick="filter('character',this)">Character</button>
+<button onclick="filter('game',this)">Game</button>
+<button onclick="filter('story',this)">Story</button>
+<button onclick="filter('experimental',this)">Experimental</button>
+</div>
+
+<!-- GRID -->
+<div class="grid">
+
+<!-- CARD 1 -->
+<div class="card" data-category="character">
+<img src="https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif">
+
+<div class="card-content">
+<h4>Walking Cycle</h4>
+<p>by Maya</p>
+
+<div class="actions">
+<button onclick="like(this)">❤️ <span>12</span></button>
+<button onclick="playVideo('walk')">▶</button>
+</div>
+
+</div>
+</div>
+
+<!-- CARD 2 -->
+<div class="card" data-category="game">
+<img src="https://media.giphy.com/media/26xBI73gWquCBBCDe/giphy.gif">
+
+<div class="card-content">
+<h4>Game Jump</h4>
+<p>by Leo</p>
+
+<div class="actions">
+<button onclick="like(this)">❤️ <span>7</span></button>
+<button onclick="playVideo('jump')">▶</button>
+</div>
+
+</div>
+</div>
+
+<!-- CARD 3 -->
+<div class="card" data-category="story">
+<img src="https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif">
+
+<div class="card-content">
+<h4>Story Scene</h4>
+<p>by Kim</p>
+
+<div class="actions">
+<button onclick="like(this)">❤️ <span>21</span></button>
+<button onclick="playVideo('story')">▶</button>
+</div>
+
+</div>
+</div>
+
+<!-- CARD 4 -->
+<div class="card" data-category="experimental">
+<img src="https://media.giphy.com/media/l41lVsYDBC0UVQJCE/giphy.gif">
+
+<div class="card-content">
+<h4>Abstract Motion</h4>
+<p>by Sam</p>
+
+<div class="actions">
+<button onclick="like(this)">❤️ <span>5</span></button>
+<button onclick="playVideo('abstract')">▶</button>
+</div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- MODAL VIDEO PLAYER -->
+
+<div class="modal" id="modal">
+
+<span class="close" onclick="closeVideo()">✖</span>
+
+<video id="player" controls>
+<source src="" type="video/mp4">
+</video>
+
+</div>
+
+<script src="{{ url_for('static', filename='explore.js') }}"></script>
+
+</body>
+</html>

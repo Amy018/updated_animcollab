@@ -1,0 +1,309 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== BASE ===== */
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #0f0f12;
+  color: #eaeaea;
+}
+
+/* ===== SIDEBAR ===== */
+div[style*="position:fixed"] {
+  width: 220px;
+  height: 100vh;
+  background: linear-gradient(180deg, #1a1a1d, #0d0d10);
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 20px;
+  border-right: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 4px 0 20px rgba(0,0,0,0.6);
+}
+
+div[style*="position:fixed"] h3 {
+  color: #ff4d4d;
+  font-size: 1.4rem;
+  padding-left: 20px;
+  letter-spacing: 1px;
+}
+
+/* ===== NAV ===== */
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #cfcfcf;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background: rgba(255, 51, 51, 0.15);
+  color: #ff4d4d;
+  transform: translateX(6px);
+}
+
+nav a:first-child {
+  background: rgba(255, 51, 51, 0.2);
+  color: #ff4d4d;
+}
+
+/* ===== MAIN CONTENT ===== */
+div[style*="margin-left"] {
+  margin-left: 240px;
+  padding: 40px;
+}
+
+/* ===== HEADINGS ===== */
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: #ff4d4d;
+}
+
+/* ===== TEXT ===== */
+p {
+  color: #bdbdbd;
+  line-height: 1.6;
+}
+
+/* ===== PROFILE HEADER ===== */
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,0.03);
+  padding: 30px;
+  border-radius: 16px;
+  margin-bottom: 40px;
+}
+
+.profile-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff3333, #ff6a6a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.user-info h1 {
+  font-size: 1.6rem;
+}
+
+.role {
+  color: #ff4d4d;
+  font-size: 0.9rem;
+}
+
+.tagline {
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+/* ===== STATS ===== */
+.profile-stats {
+  display: flex;
+  gap: 25px;
+}
+
+.stat .number {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.stat .label {
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+/* ===== GALLERY ===== */
+.gallery-section {
+  margin-top: 30px;
+}
+
+.gallery-row {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+}
+
+.animation-card {
+  min-width: 220px;
+  height: 130px;
+  background: #1a1a1d;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.animation-card:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.7);
+}
+
+/* Overlay */
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.animation-card:hover .card-overlay {
+  opacity: 1;
+}
+
+/* ===== COLLAB SECTION ===== */
+.collab-box {
+  background: linear-gradient(145deg, #1a1a1d, #141417);
+  padding: 24px;
+  margin-top: 25px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  transition: 0.25s;
+}
+
+.collab-box:hover {
+  transform: translateY(-4px);
+}
+
+/* Inputs */
+.collab-box input {
+  padding: 10px 14px;
+  width: 260px;
+  margin-right: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #0f0f12;
+  color: #fff;
+}
+
+.collab-box input:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(255, 51, 51, 0.3);
+}
+
+/* Buttons */
+.collab-box button {
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #ff3333, #ff6a6a);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.collab-box button:hover {
+  transform: scale(1.05);
+}
+
+/* Collaborators */
+#collabList {
+  list-style: none;
+  margin-top: 10px;
+}
+
+#collabList li {
+  background: #111;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Chat */
+#chatBox {
+  height: 220px;
+  background: #111;
+  border-radius: 10px;
+  padding: 12px;
+  overflow-y: auto;
+  margin: 10px 0;
+}
+
+.message {
+  background: #222;
+  padding: 8px 12px;
+  margin-top: 6px;
+  border-radius: 10px;
+  width: fit-content;
+  max-width: 70%;
+}
+
+.message.user {
+  background: #ff3333;
+  margin-left: auto;
+}
+
+/* Start Button */
+.start-collab-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#startCollabBtn {
+  padding: 14px 22px;
+  background: linear-gradient(135deg, #ff3333, #ff6a6a);
+  border-radius: 12px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#startCollabBtn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(255, 51, 51, 0.7);
+}
+
+/* ===== MODAL ===== */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background: #111;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 16px;
+  width: 500px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(255,51,51,0.5);
+}

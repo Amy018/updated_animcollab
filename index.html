@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>BLANKCANVAS</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <span class="logo">BLANKCANVAS</span>
+
+    <div class="nav-actions">
+      <button id="themeToggle" class="btn ghost">Dark</button>
+      <a href="{{ url_for('login') }}" class="btn ghost">Log in</a>
+      <a href="{{ url_for('signup') }}" class="btn primary">Sign up</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero section">
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="{{ url_for('static', filename='videos/bp.mp4') }}" type="video/mp4">
+  </video>
+
+  <div class="hero-content">
+    <h1 class="hero-title">BLANKCANVAS</h1>
+    <p class="hero-subtitle">
+      Where animation ideas begin, evolve, and come alive.
+    </p>
+  </div>
+</section>
+
+<section class="manifesto section">
+  <h2>Create. Experiment. Collaborate.</h2>
+  <p>
+    BlankCanvas is a creative learning platform for animators who want more
+    than tutorials — a space to grow through making, feedback, and community.
+  </p>
+</section>
+
+<section class="features section">
+  <h2>What you can do here</h2>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <h3>Create animations</h3>
+      <p>Turn raw ideas into motion with intention and style.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Get feedback</h3>
+      <p>Learn faster through thoughtful critique from real creators.</p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Collaborate</h3>
+      <p>Build alongside artists, storytellers, and developers.</p>
+    </div>
+  </div>
+</section>
+
+<script src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
+</html>

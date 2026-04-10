@@ -1,0 +1,324 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #0f0f12;
+  color: #eaeaea;
+  overflow-x: hidden;
+}
+
+
+div[style*="position:fixed"] {
+  width: 220px;
+  height: 100vh;
+  background: linear-gradient(180deg, #1a1a1d, #111);
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+div[style*="position:fixed"] h3 {
+  padding: 20px;
+  color: #ff3333;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #cfcfcf;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background: rgba(255, 51, 51, 0.15);
+  color: #ff3333;
+  transform: translateX(6px);
+}
+
+
+div[style*="margin-left"] {
+  margin-left: 240px;
+  padding: 30px;
+}
+
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+h3 {
+  font-size: 1.2rem;
+  color: #ff3333;
+  margin-bottom: 10px;
+}
+
+
+.create-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+}
+
+
+.top-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1a1a1d;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.project-title {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  outline: none;
+}
+
+.toolbar-actions {
+  display: flex;
+  gap: 10px;
+  position: relative;
+}
+
+.toolbar-actions button {
+  background: #ff3333;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.toolbar-actions button:hover {
+  opacity: 0.8;
+}
+
+
+#toggleOnion {
+  background: #555;
+}
+#toggleOnion.active {
+  background: #00ff88; 
+  color: black;
+}
+
+
+#exportOptions {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #1a1a1d;
+  border-radius: 6px;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+#exportOptions button {
+  background: #2a2a2f;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
+  text-align: left;
+}
+
+#exportOptions button:hover {
+  background: #ff3333;
+}
+
+
+.workspace {
+  display: flex;
+  height: 70vh;
+  gap: 20px;
+}
+
+
+.tools-panel {
+  width: 190px;
+  background: #1a1a1d;
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tools-panel button {
+  background: #2a2a2f;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.tools-panel button:hover,
+.tools-panel button.active {
+  background: #ff3333;
+}
+
+
+.tools-panel input[type="color"] {
+  width: 100%;
+  height: 35px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.tools-panel input[type="range"] {
+  width: 100%;
+  cursor: pointer;
+}
+
+
+.assets-panel {
+  width: 180px;
+  background: #1a1a1d;
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.asset-item {
+  background: #2a2a2f;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.2s;
+}
+
+.asset-item:hover {
+  background: #ff3333;
+}
+
+
+.canvas-area {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: #141418;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+
+#drawingCanvas {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  cursor: crosshair;
+}
+
+.frames-panel {
+  width: 210px;
+  background: #1a1a1d;
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+}
+
+
+.frame-thumbnail {
+  background: #2a2a2f;
+  padding: 10px;
+  border-radius: 6px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 0.85rem;
+}
+
+.frame-thumbnail:hover {
+  background: #3a3a40;
+}
+
+
+.frame-thumbnail.current {
+  background: #ff3333;
+  color: white;
+}
+
+
+.frame-thumbnail.playing {
+  background: #00ff88;
+  color: black;
+}
+
+
+.add-frame {
+  margin-top: 10px;
+  background: #ff3333;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.add-frame:hover {
+  opacity: 0.8;
+}
+
+
+.frames-panel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.frames-panel::-webkit-scrollbar-thumb {
+  background: #ff3333;
+  border-radius: 10px;
+}
+
+
+@media(max-width:1200px) {
+  .workspace {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .tools-panel,
+  .assets-panel,
+  .frames-panel {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}

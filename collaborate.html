@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Collaborate</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style5.css') }}">
+</head>
+<body>
+
+<div style="width:220px; background:#1a1a1d; height:100vh; position:fixed;">
+  <h3 style="padding:20px;">🎬 Hub</h3>
+  <nav style="display:flex; flex-direction:column; gap:15px; padding:20px;">
+    <a href="{{ url_for('dashboard') }}">Dashboard</a>
+    <a href="{{ url_for('explore') }}">Explore</a>
+    <a href="{{ url_for('create') }}">Create</a>
+    <a href="{{ url_for('collaborate') }}">Collaborate</a>
+    <a href="{{ url_for('logout') }}">Logout</a>
+  </nav>
+</div>
+
+<div style="margin-left:240px; padding:40px;">
+
+<h1>Collaborations</h1>
+
+<div class="collab-box">
+<h3>Invite Collaborator</h3>
+<input type="text" id="collabInput" placeholder="Enter collaborator name">
+<button id="addCollabBtn">Add</button>
+</div>
+
+<div class="collab-box">
+<h3>Team Members</h3>
+<ul id="collabList"></ul>
+</div>
+
+<div class="collab-box">
+<h3>Project Discussion</h3>
+
+<div id="chatBox"></div>
+
+<input type="text" id="messageInput" placeholder="Type message">
+<button id="sendBtn">Send</button>
+
+</div>
+<div class="start-collab-container">
+  <button id="startCollabBtn">Start Collaboration</button>
+</div>
+
+</div>
+
+<script src="{{ url_for('static', filename='collaborate.js') }}"></script>
+
+</body>
+</html>
