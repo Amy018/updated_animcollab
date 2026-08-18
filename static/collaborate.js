@@ -1,7 +1,7 @@
-// ===== STORAGE =====
+
 let collaborators = JSON.parse(localStorage.getItem("collaborators")) || [];
 
-// ===== ELEMENTS =====
+
 const addBtn = document.getElementById("addCollabBtn");
 const collabInput = document.getElementById("collabInput");
 const collabList = document.getElementById("collabList");
@@ -12,7 +12,6 @@ const chatBox = document.getElementById("chatBox");
 
 const startBtn = document.getElementById("startCollabBtn");
 
-// ===== RENDER FUNCTION =====
 function renderCollaborators() {
     collabList.innerHTML = "";
 
@@ -34,13 +33,13 @@ function renderCollaborators() {
     });
 }
 
-// ===== SAVE + RERENDER =====
+
 function saveAndRender() {
     localStorage.setItem("collaborators", JSON.stringify(collaborators));
     renderCollaborators();
 }
 
-// ===== ADD COLLABORATOR =====
+
 addBtn.addEventListener("click", function () {
 
     let name = collabInput.value.trim();
@@ -50,7 +49,7 @@ addBtn.addEventListener("click", function () {
         return;
     }
 
-    // جلوگیری از تکرار (no duplicates)
+  
     if (collaborators.includes(name)) {
         alert("Collaborator already added!");
         return;
@@ -62,7 +61,7 @@ addBtn.addEventListener("click", function () {
     saveAndRender();
 });
 
-// ===== START COLLABORATION =====
+
 startBtn.addEventListener("click", function () {
 
     if (collaborators.length === 0) {
@@ -72,11 +71,10 @@ startBtn.addEventListener("click", function () {
 
     localStorage.setItem("collaborators", JSON.stringify(collaborators));
 
-    // FIXED: Use Flask route for Create page
+   
     window.location.href = "/create";
 });
 
-// ===== CHAT SYSTEM =====
 sendBtn.addEventListener("click", function () {
 
     let message = messageInput.value.trim();
@@ -96,5 +94,5 @@ sendBtn.addEventListener("click", function () {
     messageInput.value = "";
 });
 
-// ===== INITIAL LOAD =====
+
 renderCollaborators();
