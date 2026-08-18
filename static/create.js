@@ -335,14 +335,12 @@ function renderFrames(){
 renderFrames();
 
 });
-// =====================
-// SAVE / EXPORT / PRIVATE
-// =====================
 
-const saveBtn = document.getElementById("saveBtn"); // Add a button in HTML
-const savePrivateBtn = document.getElementById("savePrivateBtn"); // Add private button
 
-// ---- SAVE PUBLIC ----
+const saveBtn = document.getElementById("saveBtn"); 
+const savePrivateBtn = document.getElementById("savePrivateBtn"); 
+
+
 saveBtn.addEventListener("click", async () => {
     const stream = canvas.captureStream(30); // 30 FPS
     const mediaRecorder = new MediaRecorder(stream);
@@ -430,3 +428,32 @@ exportGIF.addEventListener("click", async () => {
 
     gif.render();
 });
+let collaborationMode = false;
+const collabToggle = document.getElementById("collabToggle");
+
+collabToggle.addEventListener("click", () => {
+  collaborationMode = !collaborationMode;
+
+  collabToggle.textContent = collaborationMode
+    ? "Disable Collaboration"
+    : "Enable Collaboration";
+});
+function simulateDrawingUsers() {
+  if (!collaborationMode) return; // 🔑 THIS LINE
+
+  fakeUsers.forEach(user => {
+    let newX = user.x + (Math.random() - 0.5) * 15;
+    let newY = user.y + (Math.random() - 0.5) * 15;
+
+    ctx.beginPath();
+    ctx.moveTo(user.x, user.y);
+    ctx.lineTo(newX, newY);
+    ctx.strokeStyle = user.color;
+    ctx.stroke();
+
+    user.x = newX;
+    user.y = newY;
+  });
+}
+
+setInterval(simulateDrawingUsers, 100);
