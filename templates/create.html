@@ -102,6 +102,8 @@
 
         <label for="rotateSliderObj">Rotate (°):</label>
         <input type="range" id="rotateSliderObj" min="0" max="360" step="1" value="0">
+
+        <button id="collabToggle">Enable Collaboration</button>
       </div>
 
       <div class="canvas-area">
@@ -112,17 +114,19 @@
         <h3>Frames</h3>
         <div id="framesContainer"></div>
         <button id="addFrame">+ Add Frame</button>
+        <button id="duplicateFrame">⧉ Duplicate</button>
       </div>
 
     </div>
   </div>
 </div>
 
-<!-- GIF LIBRARY FIRST -->
+
 <script src="https://cdn.jsdelivr.net/npm/gif.js.optimized/dist/gif.js"></script>
 
-<!-- YOUR JS -->
+
 <script src="{{ url_for('static', filename='create.js') }}"></script>
+<script src="{{ url_for('static', filename='collaborate.js') }}"></script>
 
 </body>
 </html>
